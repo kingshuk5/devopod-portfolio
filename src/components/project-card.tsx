@@ -43,9 +43,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-8">
               {project.technologies.map((tech) => (
-                <div key={tech} className="px-4 py-1 text-sm rounded-full">
-                  {tech}
-                </div>
+                <button
+                  key={tech}
+                  className=" px-4 py-2 mx-3 overflow-hidden group rounded-xl bg-gradient-to-r from-gray-700 to-black relative hover:bg-gradient-to-r hover:from-gray-600 hover:to-black text-white transition-all ease-out duration-300"
+                >
+                  <span
+                    className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 -skew-x-12 group-hover:-translate-x-36 ease"
+                  ></span>
+                  <span className="relative text-xl font-semibold text-slate-400">{tech}</span>
+                </button>
+
+
+                // <div key={tech} className="px-4 py-1 text-sm rounded-full">
+                //   {tech}
+                // </div>
               ))}
             </div>
             <button 
