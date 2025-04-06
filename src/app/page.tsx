@@ -3,32 +3,52 @@
 import { MobileFrame } from "@/components/mobile-frame"
 import { ProjectCard } from "@/components/project-card"
 // import { Button } from "@/components/ui/button"
-import { ArrowRight, Download, Globe } from "lucide-react"
+import { ArrowRight, Globe } from "lucide-react"
 import { motion } from "framer-motion"
 import emailjs from "emailjs-com";
 
 export default function Page() {
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
+    try {
+      const result = await emailjs.sendForm(
         "service_0ewuzz9", // Replace with your EmailJS Service ID
         "template_ixvvo0d", // Replace with your EmailJS Template ID
         e.currentTarget,
         "NYahm-fhZlQ9Fs_tQ" // Replace with your EmailJS User ID
-      )
-      .then(
-        (result) => {
-          alert("Message sent successfully! Our Team will  get back to you  soon! ");
-        },
-        (error) => {
-          alert("Failed to send message. Please try again.");
-        }
       );
+      
+      if (result.status === 200) {
+        alert("Message sent successfully! Our Team will get back to you soon!");
+      } else {
+        throw new Error(`Email failed with status: ${result.status}`);
+      }
+    } catch (error: any) {
+      console.error("Failed to send message:", error);
+      alert(`Failed to send message. Please try again. Error: ${error.message}`);
+    } finally {
+      e.currentTarget.reset();
+    }
 
-    e.currentTarget.reset();
+    // emailjs
+    //   .sendForm(
+    //     "service_0ewuzz9", // Replace with your EmailJS Service ID
+    //     "template_ixvvo0d", // Replace with your EmailJS Template ID
+    //     e.currentTarget,
+    //     "NYahm-fhZlQ9Fs_tQ" // Replace with your EmailJS User ID
+    //   )
+    //   .then(
+    //     (result) => {
+    //       alert("Message sent successfully! Our Team will  get back to you  soon! ");
+    //     },
+    //     (error) => {
+    //       alert("Failed to send message. Please try again.");
+    //     }
+    //   );
+
+    // e.currentTarget.reset();
   };
 
 
@@ -342,7 +362,7 @@ export default function Page() {
             </div>
             <div className="mb-4">
               <label htmlFor="service" className="block text-left font-medium mb-2">
-                What Service you're looking for?
+                What Service you&apos;re looking for?
               </label>
               <input
                 placeholder="Enter here"
