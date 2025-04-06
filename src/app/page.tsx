@@ -54,7 +54,7 @@ export default function Page() {
     {
       id: 4,
       title: "Zulu App",
-      description: "Potentiel Emitter App",
+      description: "An IoT-based application designed to receive, store, and automatically share real-time data from a Potential Emitter device installed on oil pipelines. The app monitors and reports erosion levels, enabling proactive maintenance and enhancing pipeline safety.",
       technologies: ["Flutter", "Firebase", "WebSocket"],
       color: "from-yellow-500 to-orange-400",
       screenshots: [
