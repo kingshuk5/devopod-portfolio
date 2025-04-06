@@ -27,7 +27,7 @@ export default function Page() {
       id: 2,
       title: "Go Travels",
       description: "Sustainable travel planning app with carbon footprint tracking and hotel recommendations.",
-      technologies: ["Flutter", "Node.js", "MongoDB"],
+      technologies: ["React Native", "Node.js", "MongoDB"],
       color: "from-green-500 to-emerald-300",
       screenshots: [
         "/gotravels1.jpg",
@@ -41,7 +41,7 @@ export default function Page() {
       id: 3,
       title: "Neon Vault",
       description: "Real-time cryptocurrency tracking with portfolio management and predictive analytics.",
-      technologies: ["Flutter", "FireBase", "WebSocket"],
+      technologies: ["React Native", "FireBase", "WebSocket"],
       color: "from-purple-600 to-pink-400",
       screenshots: [
         "/neonvault1.jpg",
@@ -93,7 +93,7 @@ export default function Page() {
                 transition={{ delay: 0.2 }}
                 className="mb-6"
               > 
-                <img src="/DEVOPOD.png" alt="devopod" className="bg-white/60 mb-10 md:w-full w-3/4 h-fit rounded-md p-4"/>
+                <img src="/DEVOPOD.png" alt="devopod" className="bg-white/60 mb-10 md:w-1/2 w-3/4 h-fit rounded-md p-4"/>
                 <span className="px-3 py-1 rounded-full text-xl sm:text-4xl   font-medium bg-gradient-to-r from-violet-600/20 to-indigo-600/20 border border-violet-500/20 inline-block">
                   {/* <span className="text-red-700">De</span>
                   <span className="text-yellow-500">vo</span>
@@ -122,8 +122,8 @@ export default function Page() {
                 transition={{ delay: 0.4 }}
                 className="text-lg sm:text-xl text-muted-foreground max-w-[600px] mb-8 leading-relaxed"
               >
-                We craft exceptional Flutter applications that redefine mobile experiences. From concept to deployment,
-                we bring your vision to life with cutting-edge technology.
+                We craft exceptional Flutter, Artificial Intelligence and Mern Stack applications that redefine mobile experiences. 
+                From concept to deployment, we bring your vision to life with cutting-edge technology.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -133,6 +133,7 @@ export default function Page() {
               >
                 <button
                   // size="lg"
+                  onClick={()=> window.open("#projects")}
                   className="flex felx-row rounded-full text-lg p-2 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 transition-all duration-300"
                 >
                   View Projects
@@ -141,7 +142,8 @@ export default function Page() {
                 <button 
                   // variant="outline" 
                   // size="lg" 
-                  className="rounded-full text-lg px-8">
+                  onClick={() => window.open("https://devopod.co.in/contact.php", "_blank")}
+                  className="rounded-full flex flex-row text-lg px-8">
                   Contact Us
                   <Download className="ml-2 h-5 w-5" />
                 </button>
@@ -202,7 +204,7 @@ export default function Page() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-32 container  px-4 relative">
+      <section id="projects" className="py-32 container  px-4 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -214,7 +216,7 @@ export default function Page() {
             Our Projects
           </h2>
           <p className="text-xl text-muted-foreground max-w-[600px] mx-auto">
-            Discover our portfolio of innovative Flutter applications
+            Discover our portfolio of innovative  projects.
           </p>
         </motion.div>
         <div className="grid gap-32">
@@ -263,7 +265,7 @@ export default function Page() {
       <div className="flex items-center gap-4 ">
         <div className="social-button">
           <button className="relative w-12 h-12 rounded-full group">
-            <a href="https://devopod.co.in/">
+            <a href="https://www.instagram.com/devopod_digital/">
             <div
               className="floater w-full h-full absolute top-0 left-0 bg-violet-400 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"
             ></div>
@@ -292,6 +294,7 @@ export default function Page() {
           </button>
         </div>
         <div className="social-button">
+          <a href="https://github.com/Devopod">
           <button className="relative w-12 h-12 rounded-full group">
             <div
               className="floater w-full h-full absolute top-0 left-0 bg-black rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"
@@ -313,8 +316,10 @@ export default function Page() {
               </svg>
             </div>
           </button>
+          </a>
         </div>
         <div className="social-button">
+        <a href="https://www.linkedin.com/company/devopod/">
           <button className="relative w-12 h-12 rounded-full group">
             <div
               className="floater w-full h-full absolute top-0 left-0 bg-blue-500 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"
@@ -336,9 +341,12 @@ export default function Page() {
               </svg>
             </div>
           </button>
+          </a>
         </div>
         <div className="social-button">
-          <button className="relative w-12 h-12 rounded-full group">
+          <button 
+            onClick={() => window.location.href = "mailto:requirement@devopod.co.in"}
+            className="relative w-12 h-12 rounded-full group">
             <div
               className="floater w-full h-full absolute top-0 left-0 bg-red-400 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"
             ></div>

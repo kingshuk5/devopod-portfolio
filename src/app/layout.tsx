@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "Devopod - Flutter App Development",
+  title: "Devopod - Software Development",
   description: "Portfolio of beautiful and functional Flutter applications by Devopod",
 }
 
