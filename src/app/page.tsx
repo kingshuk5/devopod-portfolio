@@ -3,10 +3,38 @@
 import { MobileFrame } from "@/components/mobile-frame"
 import { ProjectCard } from "@/components/project-card"
 // import { Button } from "@/components/ui/button"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight, Download, Globe } from "lucide-react"
 import { motion } from "framer-motion"
+import emailjs from "emailjs-com";
 
 export default function Page() {
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_0ewuzz9", // Replace with your EmailJS Service ID
+        "template_ixvvo0d", // Replace with your EmailJS Template ID
+        e.currentTarget,
+        "NYahm-fhZlQ9Fs_tQ" // Replace with your EmailJS User ID
+      )
+      .then(
+        (result) => {
+          alert("Message sent successfully! Our Team will  get back to you  soon! ");
+        },
+        (error) => {
+          alert("Failed to send message. Please try again.");
+        }
+      );
+
+    e.currentTarget.reset();
+  };
+
+
+
+
+
   const projects = [
     {
       id: 1,
@@ -137,15 +165,16 @@ export default function Page() {
                   className="flex felx-row rounded-full text-lg p-2 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 transition-all duration-300"
                 >
                   View Projects
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-3" />
                 </button>
                 <button 
                   // variant="outline" 
                   // size="lg" 
-                  onClick={() => window.open("https://devopod.co.in/contact.php", "_blank")}
-                  className="rounded-full flex flex-row text-lg px-8">
-                  Contact Us
-                  <Download className="ml-2 h-5 w-5" />
+                  onClick={() => window.open("https://devopod.co.in/", "_blank")}
+                  className="rounded-full flex flex-row text-lg p-2 border border-violet-600 hover:bg-violet-700">
+                  Visit Our Website
+                  {/* <Download className="ml-2 h-5 w-5" /> */}
+                  <Globe  className="ml-2 " />
                 </button>
               </motion.div>
             </motion.div>
@@ -234,7 +263,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section
       <section className="py-16 md:py-28 relative">
         <a href="https://devopod.co.in/get-a-quote.php">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
@@ -259,6 +288,105 @@ export default function Page() {
           </button>
         </motion.div>
         </a>
+      </section> */}
+      {/* Contact Section */}
+      <section className="py-16 md:py-28 relative">
+        <div className="container px-4 text-center relative">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 font-display bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
+            Let&apos;s Create Together
+          </h2>
+          <p className="text-xl text-muted-foreground mb-12 max-w-[600px] mx-auto">
+            Ready to bring your app idea to life? Get in touch with our team of Flutter experts.
+          </p>
+
+          {/* Email Form */}
+          <form onSubmit={sendEmail} className="max-w-lg mx-auto bg-transparent p-6 rounded-lg shadow-md">
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-left font-medium mb-2">
+                Name
+              </label>
+              <input
+                placeholder="Your Name"
+                type="text"
+                id="name"
+                name="name"
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-left font-medium mb-2">
+                Email
+              </label>
+              <input
+                placeholder="Your Email"
+                type="email"
+                id="email"
+                name="email"
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="phone" className="block text-left font-medium mb-2">
+                Contact Number
+              </label>
+              <input
+                placeholder="Your Contact Number"
+                type="text"
+                id="phone"
+                name="phone"
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="service" className="block text-left font-medium mb-2">
+                What Service you're looking for?
+              </label>
+              <input
+                placeholder="Enter here"
+                type="text"
+                id="service"
+                name="service"
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="budget" className="block text-left font-medium mb-2">
+                Your Budget 
+              </label>
+              <input
+                placeholder="Give your budget"
+                type="text"
+                id="budget"
+                name="budget"
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="message" className="block text-left font-medium mb-2">
+                Message
+              </label>
+              <textarea
+                placeholder="Tell us more about your Vision"
+                id="message"
+                name="message"
+                rows={4}
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-2 px-4 rounded-lg"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
       </section>
       <footer className="flex  justify-center pb-10 " >
       <div className="flex flex-col">
