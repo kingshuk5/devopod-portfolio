@@ -321,7 +321,7 @@ export default function Page() {
             Let&apos;s Create Together
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-[600px] mx-auto">
-            Ready to bring your app idea to life? Get in touch with our team of Flutter experts.
+            Ready to bring your app idea to life? Get in touch with our team of experts.
           </p>
 
           {/* Email Form */}
