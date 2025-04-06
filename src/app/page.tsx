@@ -25,9 +25,14 @@ export default function Page() {
       } else {
         throw new Error(`Email failed with status: ${result.status}`);
       }
-    } catch (error: any) {
-      console.error("Failed to send message:", error);
-      alert(`Failed to send message. Please try again. Error: ${error.message}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Failed to send message:", error);
+        alert(`Failed to send message. Please try again. Error: ${error.message}`);
+      } else {
+        console.error("An unknown error occurred:", error);
+        alert("Failed to send message. Please try again.");
+      }
     } finally {
       e.currentTarget.reset();
     }
