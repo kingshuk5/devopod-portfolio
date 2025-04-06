@@ -61,9 +61,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
             <button 
                 // asChild
-                className="rounded-full group/button relative overflow-hidden">
+                className="rounded-xl p-2 group/button relative overflow-hidden">
               <Link href={project.playStoreLink} target="_blank">
+              <div className="flex flex-col">
                 <span className="relative z-10">View on Play Store</span>
+                <span className="text-xs text-slate-200/40">Coming Soon</span>
+              </div>
                 <div
                   className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-0 group-hover/button:opacity-100 transition-opacity`}
                 />
