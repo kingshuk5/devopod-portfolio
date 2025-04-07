@@ -357,20 +357,13 @@ export default function Page() {
             <label htmlFor="phone" className="block text-left font-medium mb-2">
                 Contact Number
               </label>
-            <div className="mb-4 flex flex-row gap-2">
+            <div className="mb-4 flex flex-row gap-2 ">
               
-              <input
-                placeholder="Your Contact Number"
-                type="text"
-                id="phone"
-                name="phone"
-                required
-                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
+              
               <select
                 id="countryCode"
                 name="countryCode"
-                className="p-2 border  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="p-2 border  text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-2/5"
                 required
               >
                 <option value="213">Algeria (+213)</option>
@@ -588,6 +581,14 @@ export default function Page() {
                 <option value="260">Zambia (+260)</option>
                 <option value="263">Zimbabwe (+263)</option>
               </select>
+              <input
+                placeholder="Your Contact Number"
+                type="text"
+                id="phone"
+                name="phone"
+                required
+                className="w-full px-4 py-2 border text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
             </div>
             <div className="mb-4">
               <label htmlFor="service" className="block text-left font-medium mb-2">
